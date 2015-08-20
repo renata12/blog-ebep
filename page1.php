@@ -63,7 +63,7 @@ include('php/conexao.php');
       <div class="row">
 
         <?php 
-        $query = " SELECT * FROM posts ORDER BY id DESC LIMIT 5 ";
+        $query = " SELECT * FROM post ORDER BY id DESC LIMIT 5 ";
         $sql = mysql_query($query) or die(mysql_error().' Erro ao consultar!');
 
         while( $result = mysql_fetch_array($sql) ) {

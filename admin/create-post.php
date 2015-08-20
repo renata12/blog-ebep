@@ -3,6 +3,10 @@
 
 include('../php/conexao.php');
 
+$id = $_GET['id'];
+
+$query = "SELECT * FROM Posts  where id =$id"
+
 
 $titulo     =  isset($_POST['titulo']) ? $_POST['titulo'] : null;
 
@@ -20,16 +24,15 @@ if ( empty($conteudo) ) {
 
 }
 
-if ( !empty($titulo) && !empty($conteudo) ) {
-  //recebe data atual
-  $dataAtual = date('Y-m-d H:i:s');
+if ( !empty($titulo) && !empty($conteudo) && !empty($id)) {
+ 
   //cria a query para ser executada no banco
-  $query = " INSERT INTO posts 
-        (titulo, conteudo, id_categoria, data_postagem) 
-        values ('$titulo', '$conteudo', $categoria, '$dataAtual') ";
+  $query = " INSERT INTO posts set = '$titulo',
+  conteudo='$conteudo',id-
+  categoria=$categoria WHERE id = $id"; 
         
-        //die($query);
-  if (mysql_query($query) or mysql_error()) {
+        
+  if (mysql_query($query)){
     $msg = "Matéria postada com sucesso!";
   }
 
